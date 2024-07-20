@@ -26,6 +26,10 @@ fn main() {
         }
     }else if action == "show" {
         todo.show();
+    }else if action == "show-c"{
+        todo.show_c();
+    }else if action == "show-ic"{
+        todo.show_ic();
     } else if action == "remove" {
         match todo.remove(&item) {
             None => println!("'{}' is not present in the list", item),
@@ -82,10 +86,28 @@ impl Todo {
         }
     }
 
-    fn show(&self) {
+    pub fn show(&self) {
         for (key, &val) in &self.map {
             let status = if val { "incomplete" } else { "complete" };
             println!("{}: {}", key, status);
+        }
+    }
+
+    pub fn show_c(&self) {
+        for (key, &val) in &self.map {
+            let status = if val { "incomplete" } else { "complete" };
+            if status == "complete" {
+                println!("{} {}",key,status);
+            }
+        }
+    }
+
+    pub fn show_ic(&self) {
+        for (key, &val) in &self.map {
+            let status = if val { "incomplete" } else { "complete" };
+            if status == "incomplete" {
+                println!("{} {}",key,status);
+            }
         }
     }
 

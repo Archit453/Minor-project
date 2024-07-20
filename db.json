@@ -1,5 +1,6 @@
 {
-  "buy_juice": true,
   "house": true,
-  "homework": false
+  "buy_juice": true,
+  "homework": false,
+  "drinking": false
 }
